@@ -112,9 +112,15 @@ long double modfl (long double x, long double *iptr);
 
 #endif
 
-#ifdef _MSC_VER
+/* testing GOFFICE_WITH_WINREG to check if we are using Windows (MSYS2) */
+#if _MSC_VER
 #define isnan _isnan
 #endif
+
+ #if (GOFFICE_WITH_WINREG==1)
+ # define isnanl _isnan
+ #endif
+ 
 
 /* ------------------------------------------------------------------------- */
 
